@@ -25,12 +25,12 @@ cd GestionDeTurnos
    ```sh
    npm install
    ```
-3. Crea un archivo `.env` en la raíz del backend y agrega las siguientes variables de entorno (no incluidas en el repositorio por seguridad):
+3. Crea un archivo `.env` en la raíz del backend y agrega las siguientes variables de entorno (los valores deben configurse segun su entorno):
    ```env
    PORT=3000
-   envDSourceusername=postgres
-   envDSourcepassword=Admin123
-   envDSourcedatabase=demo_sh
+   envDSourceusername=*******
+   envDSourcepassword=*******
+   envDSourcedatabase=*******
    envDSourceTypes=postgres
    ```
 4. Ejecuta las migraciones de la base de datos (si aplica):

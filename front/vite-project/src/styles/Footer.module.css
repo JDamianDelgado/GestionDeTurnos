@@ -1,0 +1,23 @@
+.containerFooter {
+  background-color: #305268ab;
+
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.footerContent {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.5vh;
+}
+
+.footerInfo p {
+  margin: 10px 0;
+  font-size: 1.2vh;
+}

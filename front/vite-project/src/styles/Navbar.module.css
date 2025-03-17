@@ -1,0 +1,26 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  width: 100vw;
+  background-color: var(---color-primary);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2vh;
+  box-shadow: 0 0 5px 0px rgb(247, 245, 245);
+  margin-bottom: 2vh;
+  background-color: #3d6b8aab;
+}
+
+.navBarItems {
+  color: white;
+  margin: 0 5vw;
+}
+.navBarImg {
+  width: auto;
+  height: 6vh;
+  border-radius: 90%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  margin-left: 1vw;
+  margin-right: 3vw;
+}

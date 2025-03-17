@@ -1,0 +1,58 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.form {
+  width: 30%;
+  background-color: #44779a;
+  padding: 50px;
+  margin-top: 2vh;
+  margin-bottom: auto;
+  display: flex;
+  margin-left: 30%;
+  margin-bottom: 30%;
+  height: max-content;
+}
+
+.label {
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  font-size: 2vh;
+  display: flex;
+  margin-bottom: 0.5vh;
+}
+
+.input {
+  font-size: 2vh;
+  color: #44779a;
+  width: 15vw;
+  box-shadow: 0 6px 16px rgba(0, 0, 5, 7);
+  outline: none;
+}
+
+.button {
+  font-size: 3vh;
+  box-shadow: 0 4px 6px rgba(0, 0, 0.5, 1);
+}
+
+.checkbox {
+  width: 1vw;
+  height: 2vh;
+  border-radius: 50%;
+  cursor: pointer;
+  appearance: none;
+  border: 2px #0f1011;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 25px 25px rgba(1, 1, 1, 1);
+  background-color: red;
+}
+.checkbox:checked {
+  transform: scale(125%);
+  background-color: rgb(92, 245, 92);
+  box-shadow: 0 25px 25px rgba(1, 1, 1, 1);
+}
+
+.checkbox:focus {
+  outline: none;
+}

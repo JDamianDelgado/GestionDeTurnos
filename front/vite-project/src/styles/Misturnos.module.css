@@ -1,0 +1,94 @@
+body {
+  height: 100vh;
+}
+
+.all {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+  margin-bottom: 5vh;
+}
+
+.TitleTurns {
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2vh;
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.card {
+  margin-top: 2vh;
+  color: rgb(245, 243, 243);
+  text-align: center;
+  background-color: #3776a0;
+  width: 65vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 15px 4px rgba(0, 0, 0.3, 0.6);
+}
+
+.card h4,
+.card h5 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2.1vh;
+  color: rgb(255, 255, 255);
+  padding: 1.5vw;
+  margin-bottom: 2vh;
+  text-shadow: 0px 0px 2px rgb(0, 0, 0);
+}
+
+.card p {
+  color: rgb(255, 255, 255);
+  margin-bottom: 1vh;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2vh;
+  padding: 1vw;
+}
+.card:hover {
+  background-color: #0b69c0;
+  transform: translateY(6px);
+  box-shadow: 0 1px 10px #557f8d;
+}
+
+.cardButton {
+  font-size: 2vh;
+  color: rgb(255, 252, 252);
+  border: solid grey;
+  background-color: transparent;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.active {
+  border: solid rgb(23, 209, 23);
+  color: white;
+  background-color: rgb(23, 209, 23);
+  text-shadow: 1px 1px 5px rgb(0, 0, 0);
+  height: 2vh;
+  width: 8vw;
+  font-size: 2vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 35px;
+}
+.cancelled {
+  color: white;
+  border: solid red;
+  background-color: red;
+  text-shadow: 1px 1px 5px rgb(0, 0, 0);
+  height: 2vh;
+  width: 10vw;
+  font-size: 2vh;
+  margin-left: 50px;
+}

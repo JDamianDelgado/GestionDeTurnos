@@ -1,58 +1,129 @@
-# <u>GESTOR DE TURNOS PARA CENTRO CLINICO</u>
+# GESTOR DE TURNOS PARA CENTRO CLÍNICO
 
-# PLATAFORMA
+## Descripción
 
-- Al ingresar usuario debe contar con una plataforma amigable, donde visualice un resumen del centro y las practicas que se realizan en el
-- debe tener un footer donde muestre enlaces del contacto y ubicacion del centro
-- debe contar con un navBar donde aparezca "LogIn"
+Este proyecto es un sistema de gestión de turnos para un centro clínico, desarrollado con un frontend en React y un backend en Node.js con NestJS. Utiliza una base de datos PostgreSQL para almacenar la información de los usuarios y los turnos.
 
-# REGISTRO / INICIO DE SESION
+---
 
-- Debe contar con un item para registrarse/ iniciar sesion
-- EN caso de registro debe tener un formulario donde solicite
+## 🚀 Instalación y Configuración en Local
 
+### Clonar el Repositorio
+
+```sh
+git clone https://github.com/JDamianDelgado/GestionDeTurnos.git
+cd GestionDeTurnos
+```
+
+### 🖥️ Configurar el Backend
+
+1. Accede a la carpeta del backend:
+   ```sh
+   cd back
+   ```
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+3. Crea un archivo `.env` en la raíz del backend y agrega las siguientes variables de entorno (no incluidas en el repositorio por seguridad):
+   ```env
+   PORT=3000
+   envDSourceusername=postgres
+   envDSourcepassword=Admin123
+   envDSourcedatabase=demo_sh
+   envDSourceTypes=postgres
+   ```
+4. Ejecuta las migraciones de la base de datos (si aplica):
+   ```sh
+   npm run migration:run
+   ```
+5. Inicia el servidor:
+   ```sh
+   npm run start
+   ```
+   El backend se ejecutará en `http://localhost:3000`.
+
+### 🌐 Configurar el Frontend
+
+1. Accede a la carpeta del frontend:
+   ```sh
+   cd ../front
+   ```
+2. Instala las dependencias:
+   ```sh
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```sh
+   npm run dev
+   ```
+   El frontend se ejecutará en `http://localhost:5173` (por defecto en Vite).
+
+---
+
+## 🏥 Funcionalidades del Sistema
+
+### 📌 Plataforma
+
+- Presenta una interfaz amigable con información sobre el centro y sus servicios.
+- Cuenta con un **footer** con enlaces de contacto y ubicación.
+- Incluye un **NavBar** con un botón de inicio de sesión (_LogIn_).
+
+### 🔐 Registro / Inicio de Sesión
+
+- Permite a los usuarios registrarse y acceder al sistema.
+- Registro con los siguientes datos requeridos:
   - Nombre
   - Apellido
-  - Dni
+  - DNI
   - Edad
   - Fecha de nacimiento
-  - Email (verificar si no existe el mismo con otro nombre de usuario)
+  - Email (verificación de duplicados en la base de datos)
+  - Username (> 8 caracteres, incluyendo números, validando duplicados)
+  - Contraseña (> 8 caracteres, al menos una mayúscula y un carácter especial)
+- Inicio de sesión con **username** y **contraseña**.
 
-  - Username (que contenga > 8 caracteres incluyendo nros / verificar si no existe algun otro parecido en BDD)
-  - Contraseña (que tenga >8caracteres incluyendo letra en mayuscula y caracteres especial)
+### 👤 Perfil de Usuario
 
-- contar con un formulario para que ingrese username y contraseña
+- Muestra los datos del usuario registrado.
+- Opciones para modificar contraseña y cobertura médica.
+- Permite subir una foto de perfil.
 
-# En perfil
+### 📅 Solicitud de Turnos
 
-- debe contar con la misma plataforma del inicio que muestre el resumen del centro, en la parte superior 4 items:
+- Formulario para agendar turnos con los siguientes campos:
+  - **Especialidad** (_select_)
+  - **Subcategoría** de la especialidad (_select_)
+  - **Fecha** (_date_, mínimo 24 horas después, sin fines de semana ni feriados)
+  - **Hora** (_time_, de 07:00 a 19:00 horas)
+  - **Botón de Confirmación**
+- Validaciones:
+  - No se permiten turnos en fines de semana o feriados.
+  - Horario fuera del rango muestra un error.
+  - Confirmación con mensaje de asistencia y tolerancia de 10 minutos.
 
-1. Mi perfil
+### 📜 Historial y Cancelación de Turnos
 
-   - debe visualizar los datos del usuario
-   - debe tener la opcion de modificar la contraseña/cobertura
-   - debe tener la opcion de agregar foto de perfil
+- Lista de turnos organizados por especialidad, fecha y hora.
+- Opción para cancelar turnos con confirmación.
+- Acceso al historial de turnos.
+- Si no hay turnos agendados, aparece un mensaje con opción de solicitar uno nuevo.
 
-2. Nuevos turnos
+### 🔓 Cierre de Sesión (_LogOut_)
 
-   - debe contar con un formulario donde aparezca :
-     - input type 'select' donde pueda escoger la especialidad (clinico, estudios por imagenes,laboratorio, etc)
-     - input type 'select' donde pueda escoger la subcategoria de la especialidad
-     - input type 'date' donde pueda esocger la fecha **_debe ser posterior por 24 hs de la fecha actual y no podra ser un fin de semana o feriado_**.
-     - input type 'time' para seleccionar la hora **_el centro solo aceptara horario de 07 a 19 hs_**
-     - colocar un button para confirmar el turno
-     - en caso de esocger feriado, fin de semana o un horario fuera del rango solicitado mostrar un **error** con la nota **no se pudo confirmar el turno, recuerde que solo atendemos de lun a vie excluyendo feriados de 07 a 19hs**
-     - en caso de estar todo correcto mostrar un check y una nota : **recuerde asistir con la documentacion correspondiente y estudios en caso de ser necesario, el centro cuenta con una tolerancia de 10 minutos posterior al horario. En caso de no asistir avisar con una anticipacion de 24 hs. Gracias por elegirnos**
+- Botón para salir de la sesión.
+- Mensaje de confirmación de cierre de sesión.
+- Redirección a la pantalla principal.
 
-3. Mis turnos
+---
 
-   - mostrar en lista los turnos, priorizando la especialidad, fecha y horario
-   - mostrar boton para cancelar turno
-   - **_mostrar un boton para ver el historial de turno_**
-   - al cancelar turno mostrar la confirmacion del evento
-   - en caso de no haber ningun turno aparecer un cartel que muestre la leyenda 'solicitar nuevo turno" que rediriga a la pestaña "nuevos turnos"
+## 🤝 Contribuciones
 
-4. LogOut
-   - moastrar boton para salir de la sesion
-   - mostrar cartel que verifique que salio de la sesion
-   - debe redirigir a la pantalla principal
+Si deseas contribuir a este proyecto, puedes hacer un **fork**, crear una nueva rama y enviar un **pull request** con tus mejoras.
+
+---
+
+## 📩 Contacto
+
+📧 **Email:** JoakoDelgado2013@gmail.com  
+🔗 **LinkedIn:** [Joaquín D. Delgado](https://www.linkedin.com/in/joaquin-d-delgado-312125351/)
